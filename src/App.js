@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Admin, Resource } from 'react-admin';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { apiDocumentationParser, dataProvider } from './api-platform/api-plaform.utils';
+
+import PostList from './components/post/post-list.component';
+import { PostEdit, PostCreate, PostIcon } from './posts';
+
+const entrypoint = 'http://localhost:8004/api';
+
+class App extends Component {
+    state = { api: null };
+
+    componentDidMount() {
+        apiDocumentationParser(entrypoint).then(({ api }) => {
+            this.setState({ api });
+        }).catch((e) => {
+            console.log(e);
+        });
+    }
+
+    render() {
+        const { api } = this.state;
+        if (null === api) return <div>Loading...</div>;
+        return (
+            <Admin api={ api }
+                   apiDocumentationParser={ apiDocumentationParser }
+                   dataProvider= { dataProvider(api) }>
+                <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon}/>
+            </Admin>
+        )
+    }
 }
 
 export default App;
