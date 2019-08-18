@@ -1,47 +1,48 @@
 import React from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import BookIcon from '@material-ui/icons/Book';
-import CategoryIcon from '@material-ui/icons/Category';
-import IconButton from "@material-ui/core/IconButton";
-import ChevronLeftIcon from "@material-ui/core/SvgIcon/SvgIcon";
-import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
+import {Link} from 'react-router-dom';
+import useStyles from "../../layout/styles";
 
-const Sidebar = ({ toggleSidebar, classes }) => {
+import { ListItem, ListItemIcon, ListItemText, IconButton, Divider, List, Drawer } from '@material-ui/core';
+import { Dashboard as DashboardIcon, Book as BookIcon, Category as CategoryIcon, ChevronLeft as ChevronLeftIcon } from '@material-ui/icons';
+
+const Sidebar = ({ open, toggleDrawer }) => {
+    const classes = useStyles();
+
     return (
-        <div>
-            <div className={classes.toolbarIcon}>
-                <IconButton onClick={toggleSidebar}>
-                    <ChevronLeftIcon>asd</ChevronLeftIcon>
+        <Drawer
+            className={classes.drawer}
+            variant="persistent"
+            anchor="left"
+            open={open}
+            classes={{ paper: classes.drawerPaper }}
+        >
+            <div className={classes.drawerHeader}>
+                <IconButton onClick={toggleDrawer}>
+                    <ChevronLeftIcon />
                 </IconButton>
             </div>
             <Divider />
             <List>
-                <div>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <DashboardIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary="Dashboard"/>
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <BookIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary="Posts"/>
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <CategoryIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary="Categories"/>
-                    </ListItem>
-                </div>
+                <ListItem button component={Link} to="/">
+                    <ListItemIcon>
+                        <DashboardIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Dashboard" />
+                </ListItem>
+                <ListItem button component={Link} to="/posts">
+                    <ListItemIcon>
+                        <BookIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Posts" />
+                </ListItem>
+                <ListItem button component={Link} to="/categories">
+                    <ListItemIcon>
+                        <CategoryIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Categories" />
+                </ListItem>
             </List>
-        </div>
+        </Drawer>
     );
 };
 

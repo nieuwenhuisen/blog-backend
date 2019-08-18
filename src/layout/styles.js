@@ -6,14 +6,13 @@ const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
     },
-    appBar: {
+    toolbar: {
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
     },
-    appBarShift: {
-        width: `calc(100% - ${drawerWidth}px)`,
+    toolbarShift: {
         marginLeft: drawerWidth,
     },
     menuButton: {
@@ -52,6 +51,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         alignItems: 'center',
         padding: '0 8px',
+        color: 'red',
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
     },
