@@ -1,11 +1,11 @@
 import React, {Fragment, useEffect} from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
-import { Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
-import { format } from "timeago.js";
+import { Paper } from "@material-ui/core";
 
 import { fetchPostsStart } from '../../redux/post/post.actions';
 import { selectPosts } from '../../redux/post/post.selectors'
+import Datatable from "../../components/datatable/datatable.component";
 
 const PostListPage = ({ fetchPostsStart, posts }) => {
     useEffect(() => {
@@ -20,26 +20,10 @@ const PostListPage = ({ fetchPostsStart, posts }) => {
         <Fragment>
             <h1>Posts</h1>
             <Paper>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Title</TableCell>
-                            <TableCell>Slug</TableCell>
-                            <TableCell>Status</TableCell>
-                            <TableCell>Publication date</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {posts.map(post => (
-                            <TableRow key={post['@id']}>
-                                <TableCell component="th" scope="row">{post.title}</TableCell>
-                                <TableCell>{post.slug}</TableCell>
-                                <TableCell>{post.status}</TableCell>
-                                <TableCell>{format(post.publicationDate)}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
+                <Datatable
+                    headers={['Title', 'Slug', 'Status', 'Publication date']}
+                    rows={posts}
+                    />
             </Paper>
         </Fragment>
     )
