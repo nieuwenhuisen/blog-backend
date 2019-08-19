@@ -1,11 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import useStyles from "../../layout/styles";
-import { toggleSidebar } from '../../redux/cms/cms.actions';
-
+import { createStructuredSelector } from 'reselect';
 import { ListItem, ListItemIcon, ListItemText, IconButton, Divider, List, Drawer } from '@material-ui/core';
 import { Dashboard as DashboardIcon, Book as BookIcon, Category as CategoryIcon, ChevronLeft as ChevronLeftIcon } from '@material-ui/icons';
+
+import useStyles from "../../layout/styles";
+
+import { toggleSidebar } from '../../redux/cms/cms.actions';
+import { selectCmsSidebarOpen } from '../../redux/cms/cms.selectors';
 
 const Sidebar = ({ open, toggleSidebar }) => {
     const classes = useStyles();
@@ -48,8 +51,8 @@ const Sidebar = ({ open, toggleSidebar }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    open: state.cms.sidebarOpen
+const mapStateToProps = createStructuredSelector({
+    open: selectCmsSidebarOpen
 });
 
 const mapDispatchToProps = {
