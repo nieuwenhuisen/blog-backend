@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import clsx from "clsx";
 import { Toolbar, IconButton, AppBar } from "@material-ui/core";
 import { Menu as MenuIcon } from "@material-ui/icons"
+import { createStructuredSelector } from "reselect";
+
 import useStyles from "../../layout/styles";
+
 import { toggleSidebar } from '../../redux/cms/cms.actions';
+import { selectCmsSidebarOpen } from '../../redux/cms/cms.selectors';
 
 const Navbar = ({ open, toggleSidebar }) => {
     const classes = useStyles();
@@ -20,8 +24,8 @@ const Navbar = ({ open, toggleSidebar }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    open: state.cms.sidebarOpen
+const mapStateToProps = createStructuredSelector({
+    open: selectCmsSidebarOpen
 });
 
 const mapDispatchToProps = {
