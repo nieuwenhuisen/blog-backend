@@ -1,17 +1,17 @@
-import React, {Fragment, useEffect} from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect'
+import React, { Fragment, useEffect } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect"
 import { Paper } from "@material-ui/core";
 
-import { fetchPostsStart } from '../../redux/post/post.actions';
-import { selectPosts } from '../../redux/post/post.selectors'
+import { fetchPostsStart } from "../../redux/post/post.actions";
+import { selectPosts } from "../../redux/post/post.selectors"
 import Datatable from "../../components/datatable/datatable.component";
 import Spinner from "../../components/spinner/spinner.component";
 
 const PostListPage = ({ fetchPostsStart, posts }) => {
     useEffect(() => {
         fetchPostsStart();
-    }, [fetchPostsStart])
+    }, [fetchPostsStart]);
 
     return (
         <Fragment>
@@ -21,7 +21,7 @@ const PostListPage = ({ fetchPostsStart, posts }) => {
                     (<Datatable headers={['Title', 'Slug', 'Status', 'Publication date']} rows={posts} />) }
             </Paper>
         </Fragment>
-    )
+    );
 };
 
 const mapStateToProps = createStructuredSelector({

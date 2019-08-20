@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 
 import cmsReducer from './cms/cms.reducer';
 import postReducer from "./post/post.reducer";
+import categoryReducer from "./category/category.reducer";
 
 const persistConfig = {
     key: 'root',
@@ -15,6 +16,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     cms: cmsReducer,
     post: postReducer,
+    category: categoryReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
