@@ -1,9 +1,4 @@
 import React from 'react';
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { compose } from 'redux';
-
-import { selectIsPostsFetching } from "../../redux/post/post.selectors";
 
 import {Table, TableBody, TableCell, TableHead, TableRow} from "@material-ui/core";
 import {format} from "timeago.js";
@@ -39,9 +34,5 @@ const Datatable = ({ headers, rows }) => {
         </Table>
     );
 };
-
-// const mapStateToProps = createStructuredSelector({
-//     isLoading: true
-// });
 
 export default Datatable;
