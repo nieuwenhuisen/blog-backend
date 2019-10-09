@@ -1,6 +1,6 @@
 import React from "react";
 import {ListGuesser, FieldGuesser} from "@api-platform/admin";
-import { SelectField, Filter, TextInput, SelectInput } from 'react-admin';
+import { SelectField, Filter, TextInput, SelectInput, ReferenceArrayField, ReferenceInput, SingleFieldList, ChipField } from 'react-admin';
 
 const POST_STATUSES = [
     { id: 'draft', name: 'Draft' },
@@ -17,13 +17,20 @@ const PostFilter = (props) => (
     </Filter>
 );
 
-const PostList = props => (
-    <ListGuesser {...props} filters={<PostFilter />}>
-        <FieldGuesser source="title" />
-        <FieldGuesser source="slug" />
-        <SelectField source="status" choices={POST_STATUSES} />
-        <FieldGuesser source="publicationDate" />
-    </ListGuesser>
-);
+const PostList = props => {
+    return (
+        <ListGuesser {...props} filters={<PostFilter />}>
+            <FieldGuesser source="title" />
+            <FieldGuesser source="slug" />
+            <SelectField source="status" choices={POST_STATUSES} />
+            <FieldGuesser source="publicationDate" />
+            <ReferenceArrayField source="categories" reference="categories">
+                <SingleFieldList>
+                    <ChipField source="name" key="name" />
+                </SingleFieldList>
+            </ReferenceArrayField>
+        </ListGuesser>
+    );
+}
 
 export default PostList;
