@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9bacb302-e01c-4b4c-9c1a-958575f2046b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/post-edit.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/post/post-edit.component.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/post/post-list.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/post/post-list.component.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,10 +20,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
   </component>
   <component name="ProjectId" id="1Rc9ToYZNZMQE358qbNijnaKwWj" />
   <component name="PropertiesComponent">
@@ -72,7 +68,8 @@
       <workItem from="1566497127810" duration="749000" />
       <workItem from="1569955532698" duration="24000" />
       <workItem from="1570557715745" duration="3731000" />
-      <workItem from="1570644256673" duration="4804000" />
+      <workItem from="1570644256673" duration="5603000" />
+      <workItem from="1570737504461" duration="923000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,6 @@
 import React from "react";
 import {ListGuesser, FieldGuesser} from "@api-platform/admin";
-import { SelectField, Filter, TextInput, SelectInput, ReferenceArrayField, ReferenceInput, SingleFieldList, ChipField } from 'react-admin';
+import { SelectField, Filter, TextInput, SelectInput, ReferenceArrayField, SingleFieldList, ChipField } from 'react-admin';
 
 const POST_STATUSES = [
     { id: 'draft', name: 'Draft' },
